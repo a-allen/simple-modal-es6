@@ -1,3 +1,3 @@
 # Simple Modal
 
-A _work in progress_ very simple medal utilizing ES6 and webpack
+A _work in progress_ simple modal utilizing ES6 and webpack.
