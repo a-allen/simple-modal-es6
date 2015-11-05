@@ -1,17 +1,18 @@
 /* Modal
  * Author: Hart Liddell (Nov 2015)
- * Does: Global modal functionality
+ * Does: Opens/closes a simple modal.
  */
 
 define(['jquery'], function($) {
     'use strict';
 
     function closeModal() {
-        $('.tm-modal').animate({
-            opacity: 0
-        }, 50, function() {
-            $(this).remove();
-        });
+        // Unbind Esc key event, because we don't want
+        // to leave that sort thing lying around
+        $(document).off('keyup', bindEscKeyToClose);
+
+        var modal = document.getElementById('tm-modal');
+        modal.remove();
     }
 
     function openModal(htmlContent) {
@@ -42,7 +43,7 @@ define(['jquery'], function($) {
 
     // Basic HTML wrapper for modal
     function createModalHtml(htmlContent) {
-        var html = '<div class="tm-modal">';
+        var html = '<div id="tm-modal" class="tm-modal">';
             html += '<div class="tm-modal__content">';
             html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
             html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
@@ -52,13 +53,10 @@ define(['jquery'], function($) {
         return html;
     }
 
-    function bindEscKeyToClose() {
+    function bindEscKeyToClose(event) {
         // Close modal with Esc key
         if (event.keyCode == 27) {
             closeModal();
-            // Unbind Esc key event, because we don't want
-            // to leave that sort thing lying around
-            $(document).off('keyup', bindEscKeyToClose);
         }
     }
 

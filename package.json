@@ -4,11 +4,20 @@
   "description": "A simple modal.",
   "main": "simple-modal.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "napa"
   },
   "author": "Hart Liddell",
   "license": "ISC",
+  "napa": {
+    "succinct": "git://github.com/micjamking/succinct.git"
+  },
   "devDependencies": {
-    "babel": "^6.0.15"
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "imports-loader": "^0.6.5",
+    "jquery": "^2.1.4",
+    "napa": "^2.0.2",
+    "webpack": "^1.12.2"
   }
 }
