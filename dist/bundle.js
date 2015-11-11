@@ -9350,7 +9350,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(2);
-	var succinct = __webpack_require__(6);
+	var succinct = __webpack_require__(4);
 
 
 	function shorty() {
@@ -9366,9 +9366,7 @@
 
 
 /***/ },
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
