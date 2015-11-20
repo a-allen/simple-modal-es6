@@ -6,7 +6,7 @@
 define(['jquery'], function($) {
     'use strict';
 
-    function closeModal() {
+    function close() {
         // Unbind Esc key event, because we don't want
         // to leave that sort thing lying around
         $(document).off('keyup', bindEscKeyToClose);
@@ -15,7 +15,7 @@ define(['jquery'], function($) {
         modal.remove();
     }
 
-    function openModal(htmlContent) {
+    function open(htmlContent) {
         // IF there is a modal open replace its contents,
         // ELSE create a new modal
         var $modal = $('.tm-modal');
@@ -31,13 +31,13 @@ define(['jquery'], function($) {
                 // Click modal background to close
                 $(this).on('click', function(event) {
                     if (event.target === event.currentTarget) {
-                        closeModal();
+                        close();
                     }
                 });
             });
 
             $(document).on('keyup', bindEscKeyToClose);
-            $('.tm-modal__close').on('click', closeModal);
+            $('.tm-modal__close').on('click', close);
         }
     }
 
@@ -56,12 +56,12 @@ define(['jquery'], function($) {
     function bindEscKeyToClose(event) {
         // Close modal with Esc key
         if (event.keyCode == 27) {
-            closeModal();
+            close();
         }
     }
 
     return {
-        closeModal: closeModal,
-        openModal: openModal
+        close: close,
+        open: open
     };
 });

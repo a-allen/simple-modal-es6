@@ -11,7 +11,7 @@
 }
 
 .tm-modal__content {
-	position: relative;
+	color: blue;
 }
 
 .tm-modal__content__inner {
@@ -21,24 +21,4 @@
 	max-width: 600px;
 	min-width: 300px;
 	padding: 20px;
-}
-
-.tm-modal__close {
-	background: white;
-	border: none;
-	cursor: pointer;
-	font-size: 2rem;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 2rem;
-	height: 2rem;
-	overflow: hidden;
-
-	&:focus {
-		outline: none;
-	}
 }
