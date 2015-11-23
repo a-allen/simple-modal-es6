@@ -4,7 +4,7 @@
   "description": "A simple modal.",
   "main": "simple-modal.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "install": "napa"
   },
   "author": "Hart Liddell",
@@ -21,6 +21,7 @@
     "gulp-ruby-sass": "^2.0.5",
     "gulp-watch": "^4.3.5",
     "imports-loader": "^0.6.5",
+    "jest-cli": "^0.8.0",
     "jquery": "^2.1.4",
     "napa": "^2.0.2",
     "node-sass": "^3.4.1",
