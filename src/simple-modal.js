@@ -3,7 +3,7 @@
  * Purpose: Open/close a simple modal
  */
 import './simple-modal.scss';
-import { addEvent } from './helpers';
+import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {
     let html = '<div class="tm-modal__content">';
@@ -29,7 +29,7 @@ export default () => {
         close: function() {
             // Unbind Esc key event, because we don't want
             // to leave that sort thing lying around
-            document.removeEventListener('keyup', bindEscKeyToClose);
+            removeEvent(document, 'keyup', bindEscKeyToClose);
             this.state.modal.remove();
         },
         open: function(htmlContent) {

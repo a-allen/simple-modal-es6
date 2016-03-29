@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _simpleModal = __webpack_require__(5);
+	var _simpleModal = __webpack_require__(1);
 
 	var _simpleModal2 = _interopRequireDefault(_simpleModal);
 
@@ -60,9 +60,123 @@
 	};
 
 /***/ },
-/* 1 */,
-/* 2 */,
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	__webpack_require__(2);
+
+	var _helpers = __webpack_require__(6);
+
+	/* Modal
+	 * Author: Hart Liddell (Mar 2016)
+	 * Purpose: Open/close a simple modal
+	 */
+
+
+	var createModalHtml = function createModalHtml(htmlContent) {
+	    var html = '<div class="tm-modal__content">';
+	    html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
+	    html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
+	    html += '</div>';
+
+	    var domNode = document.createElement('div');
+	    domNode.id = 'tm-modal';
+	    domNode.innerHTML = html;
+	    return domNode;
+	};
+
+	var bindEscKeyToClose = function bindEscKeyToClose(event) {
+	    if (event.keyCode == 27) {
+	        this.close();
+	    }
+	};
+
+	exports.default = function () {
+	    return {
+	        state: {},
+	        close: function close() {
+	            // Unbind Esc key event, because we don't want
+	            // to leave that sort thing lying around
+	            (0, _helpers.removeEvent)(document, 'keyup', bindEscKeyToClose);
+	            this.state.modal.remove();
+	        },
+	        open: function open(htmlContent) {
+	            var _this = this;
+
+	            // IF there is a modal open replace its contents,
+	            // ELSE create a new modal
+	            if (document.getElementById('tm-modal')) {
+	                document.getElementById('tm-modal').getElementsByClassName('tm-modal__content__inner')[0].innerHTML = htmlContent;
+	            } else {
+
+	                var state = this.state;
+	                document.body.appendChild(createModalHtml(htmlContent));
+	                state.modal = document.getElementById('tm-modal');
+	                state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
+
+	                (0, _helpers.addEvent)(state.modal, 'click', function (event) {
+	                    if (event.target.id === 'tm-modal') {
+	                        _this.close();
+	                    }
+	                });
+
+	                (0, _helpers.addEvent)(state.closeBtn, 'click', function () {
+	                    _this.close();
+	                });
+	                (0, _helpers.addEvent)(document, 'keyup', bindEscKeyToClose.bind(this));
+	            }
+	        }
+	    };
+	};
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(3);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(5)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
 /* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(4)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#tm-modal {\n  background-color: rgba(0, 0, 0, 0.65);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0; }\n\n.tm-modal__content {\n  position: relative; }\n\n.tm-modal__content__inner {\n  background: white;\n  box-sizing: border-box;\n  margin: auto;\n  max-width: 600px;\n  min-width: 300px;\n  padding: 20px; }\n\n.tm-modal__close {\n  background: white;\n  border: none;\n  cursor: pointer;\n  font-size: 2rem;\n  line-height: 1;\n  margin: 0;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 2rem;\n  height: 2rem;\n  overflow: hidden; }\n  .tm-modal__close:focus {\n    outline: none; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	/*
@@ -118,7 +232,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -370,82 +484,6 @@
 
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	__webpack_require__(7);
-
-	var _helpers = __webpack_require__(6);
-
-	/* Modal
-	 * Author: Hart Liddell (Mar 2016)
-	 * Purpose: Open/close a simple modal
-	 */
-
-
-	var createModalHtml = function createModalHtml(htmlContent) {
-	    var html = '<div class="tm-modal__content">';
-	    html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
-	    html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
-	    html += '</div>';
-
-	    var domNode = document.createElement('div');
-	    domNode.id = 'tm-modal';
-	    domNode.innerHTML = html;
-	    return domNode;
-	};
-
-	var bindEscKeyToClose = function bindEscKeyToClose(event) {
-	    if (event.keyCode == 27) {
-	        this.close();
-	    }
-	};
-
-	exports.default = function () {
-	    return {
-	        state: {},
-	        close: function close() {
-	            // Unbind Esc key event, because we don't want
-	            // to leave that sort thing lying around
-	            document.removeEventListener('keyup', bindEscKeyToClose);
-	            this.state.modal.remove();
-	        },
-	        open: function open(htmlContent) {
-	            var _this = this;
-
-	            // IF there is a modal open replace its contents,
-	            // ELSE create a new modal
-	            if (document.getElementById('tm-modal')) {
-	                document.getElementById('tm-modal').getElementsByClassName('tm-modal__content__inner')[0].innerHTML = htmlContent;
-	            } else {
-
-	                var state = this.state;
-	                document.body.appendChild(createModalHtml(htmlContent));
-	                state.modal = document.getElementById('tm-modal');
-	                state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
-
-	                (0, _helpers.addEvent)(state.modal, 'click', function (event) {
-	                    if (event.target.id === 'tm-modal') {
-	                        _this.close();
-	                    }
-	                });
-
-	                (0, _helpers.addEvent)(state.closeBtn, 'click', function () {
-	                    _this.close();
-	                });
-	                (0, _helpers.addEvent)(document, 'keyup', bindEscKeyToClose.bind(this));
-	            }
-	        }
-	    };
-	};
-
-/***/ },
 /* 6 */
 /***/ function(module, exports) {
 
@@ -455,6 +493,7 @@
 	    value: true
 	});
 	exports.addEvent = addEvent;
+	exports.removeEvent = removeEvent;
 	function addEvent(obj, type, fn) {
 	    if (obj.addEventListener) {
 	        obj.addEventListener(type, fn, false);
@@ -465,45 +504,10 @@
 	    }
 	}
 
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(8);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
+	function removeEvent(obj, type, fn) {
+	    if (obj.removeEventListener) obj.removeEventListener(type, fn, false);
+	    if (obj.detachEvent) obj.detachEvent('on' + type, fn);
 	}
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "#tm-modal {\n  background-color: rgba(0, 0, 0, 0.65);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0; }\n\n.tm-modal__content {\n  position: relative; }\n\n.tm-modal__content__inner {\n  background: white;\n  box-sizing: border-box;\n  margin: auto;\n  max-width: 600px;\n  min-width: 300px;\n  padding: 20px; }\n\n.tm-modal__close {\n  background: white;\n  border: none;\n  cursor: pointer;\n  font-size: 2rem;\n  line-height: 1;\n  margin: 0;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 2rem;\n  height: 2rem;\n  overflow: hidden; }\n  .tm-modal__close:focus {\n    outline: none; }\n", ""]);
-
-	// exports
-
 
 /***/ }
 /******/ ]);

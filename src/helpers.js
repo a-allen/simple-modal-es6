@@ -5,3 +5,10 @@ export function addEvent(obj, type, fn) {
         obj.attachEvent('on' + type, function() { return fn.apply(obj, [window.event]);});
     }
 }
+
+export function removeEvent(obj, type, fn) {
+ if (obj.removeEventListener)
+    obj.removeEventListener ( type, fn, false);
+ if (obj.detachEvent)
+    obj.detachEvent ('on' + type, fn);
+}
