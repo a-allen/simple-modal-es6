@@ -52,11 +52,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var message = '<h4>Where have all the wild things gone?</h4>';
+	var message = '<div><h4>Where have all the wild things gone?</h4><div id="again">TRY AGAIN</div></div>';
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
 	    (0, _simpleModal2.default)().open(message);
+	    document.getElementById('again').onclick = function (event) {
+	        event.preventDefault();
+	        (0, _simpleModal2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
+	    };
 	};
 
 /***/ },

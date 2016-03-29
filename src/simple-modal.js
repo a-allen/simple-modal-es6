@@ -37,7 +37,6 @@ const openModal = function(htmlContent) {
         document.getElementById('tm-modal')
             .getElementsByClassName('tm-modal__content__inner')[0]
             .innerHTML = htmlContent;
-
     } else {
 
         const state = this.state;
