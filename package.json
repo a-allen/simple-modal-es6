@@ -4,30 +4,21 @@
   "description": "A simple modal.",
   "main": "simple-modal.js",
   "scripts": {
-    "test": "jest",
-    "install": "napa"
+    "local": "webpack --progress --colors --watch & httpster"
   },
   "author": "Hart Liddell",
   "license": "ISC",
-  "napa": {
-    "succinct": "git://github.com/micjamking/succinct.git"
-  },
-  "devDependencies": {
-    "browserify": "^12.0.1",
-    "browserify-shim": "^3.8.11",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-ruby-sass": "^2.0.5",
-    "gulp-watch": "^4.3.5",
-    "imports-loader": "^0.6.5",
-    "jest-cli": "^0.8.0",
-    "jquery": "^2.1.4",
-    "napa": "^2.0.2",
-    "node-sass": "^3.4.1",
-    "path": "^0.12.7",
-    "sass-loader": "^3.1.1",
-    "webpack": "^1.12.2"
+  "dependencies": {
+    "autoprefixer": "^6.1.2",
+    "babel-core": "6.1.2",
+    "babel-loader": "6.0.1",
+    "babel-preset-es2015": "6.1.2",
+    "css-loader": "^0.23.0",
+    "node-sass": "^3.4.2",
+    "postcss-loader": "^0.8.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "1.12.9"
   },
   "repository": {
     "type": "git",

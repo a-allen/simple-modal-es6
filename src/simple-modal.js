@@ -1,62 +1,63 @@
 /* Modal
- * Author: Hart Liddell (Nov 2015)
- * Does: Opens/closes a simple modal.
+ * Author: Hart Liddell (Mar 2016)
+ * Purpose: Open/close a simple modal
  */
+import './simple-modal.scss';
+import { addEvent } from './helpers';
 
-function close() {
-    // Unbind Esc key event, because we don't want
-    // to leave that sort thing lying around
-    $(document).off('keyup', bindEscKeyToClose);
-    var modal = document.getElementById('tm-modal');
-    modal.remove();
-}
-
-function open(htmlContent) {
-    // IF there is a modal open replace its contents,
-    // ELSE create a new modal
-    var $modal = $('.tm-modal');
-    if ($modal.length > 0) {
-        $modal.find('.tm-modal__content__inner').html(htmlContent);
-    } else {
-
-        $('body').append(createModalHtml(htmlContent));
-        $('.tm-modal').animate({
-            opacity: 1
-        }, 50, function() {
-
-            // Click modal background to close
-            $(this).on('click', function(event) {
-                if (event.target === event.currentTarget) {
-                    close();
-                }
-            });
-        });
-
-        $(document).on('keyup', bindEscKeyToClose);
-        $('.tm-modal__close').on('click', close);
-    }
-}
-
-// Basic HTML wrapper for modal
-function createModalHtml(htmlContent) {
-    var html = '<div id="tm-modal" class="tm-modal">';
-        html += '<div class="tm-modal__content">';
+const createModalHtml = function(htmlContent) {
+    let html = '<div class="tm-modal__content">';
         html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
         html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
         html += '</div>';
-        html += '</div>';
 
-    return html;
+    const domNode = document.createElement('div');
+    domNode.id = 'tm-modal';
+    domNode.innerHTML = html;
+    return domNode;
 }
 
-function bindEscKeyToClose(event) {
-    // Close modal with Esc key
+const bindEscKeyToClose = function(event) {
     if (event.keyCode == 27) {
-        close();
+        this.close();
     }
 }
 
-module.exports = {
-    close: close,
-    open: open
-}
+export default () => {
+    return ({
+        state: {},
+        close: function() {
+            // Unbind Esc key event, because we don't want
+            // to leave that sort thing lying around
+            document.removeEventListener('keyup', bindEscKeyToClose);
+            this.state.modal.remove();
+        },
+        open: function(htmlContent) {
+            // IF there is a modal open replace its contents,
+            // ELSE create a new modal
+            if (document.getElementById('tm-modal')) {
+                document.getElementById('tm-modal')
+                    .getElementsByClassName('tm-modal__content__inner')[0]
+                    .innerHTML = htmlContent;
+
+            } else {
+
+                const state = this.state;
+                document.body.appendChild(createModalHtml(htmlContent));
+                state.modal = document.getElementById('tm-modal');
+                state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
+
+                addEvent(state.modal, 'click', (event) => {
+                    if (event.target.id === 'tm-modal') {
+                        this.close();
+                    }
+                });
+
+                addEvent(state.closeBtn, 'click', () => {
+                    this.close();
+                });
+                addEvent(document, 'keyup', bindEscKeyToClose.bind(this));
+            }
+        }
+    });
+};
