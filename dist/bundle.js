@@ -97,41 +97,45 @@
 	    }
 	};
 
+	var closeModal = function closeModal() {
+	    // Unbind Esc key event, because we don't want
+	    // to leave that sort thing lying around
+	    (0, _helpers.removeEvent)(document, 'keyup', bindEscKeyToClose);
+	    this.state.modal.remove();
+	};
+
+	var openModal = function openModal(htmlContent) {
+	    var _this = this;
+
+	    // IF there is a modal open replace its contents,
+	    // ELSE create a new modal
+	    if (document.getElementById('tm-modal')) {
+	        document.getElementById('tm-modal').getElementsByClassName('tm-modal__content__inner')[0].innerHTML = htmlContent;
+	    } else {
+
+	        var state = this.state;
+	        document.body.appendChild(createModalHtml(htmlContent));
+	        state.modal = document.getElementById('tm-modal');
+	        state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
+
+	        (0, _helpers.addEvent)(state.modal, 'click', function (event) {
+	            if (event.target.id === 'tm-modal') {
+	                _this.close();
+	            }
+	        });
+
+	        (0, _helpers.addEvent)(state.closeBtn, 'click', function () {
+	            _this.close();
+	        });
+	        (0, _helpers.addEvent)(document, 'keyup', bindEscKeyToClose.bind(this));
+	    }
+	};
+
 	exports.default = function () {
 	    return {
 	        state: {},
-	        close: function close() {
-	            // Unbind Esc key event, because we don't want
-	            // to leave that sort thing lying around
-	            (0, _helpers.removeEvent)(document, 'keyup', bindEscKeyToClose);
-	            this.state.modal.remove();
-	        },
-	        open: function open(htmlContent) {
-	            var _this = this;
-
-	            // IF there is a modal open replace its contents,
-	            // ELSE create a new modal
-	            if (document.getElementById('tm-modal')) {
-	                document.getElementById('tm-modal').getElementsByClassName('tm-modal__content__inner')[0].innerHTML = htmlContent;
-	            } else {
-
-	                var state = this.state;
-	                document.body.appendChild(createModalHtml(htmlContent));
-	                state.modal = document.getElementById('tm-modal');
-	                state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
-
-	                (0, _helpers.addEvent)(state.modal, 'click', function (event) {
-	                    if (event.target.id === 'tm-modal') {
-	                        _this.close();
-	                    }
-	                });
-
-	                (0, _helpers.addEvent)(state.closeBtn, 'click', function () {
-	                    _this.close();
-	                });
-	                (0, _helpers.addEvent)(document, 'keyup', bindEscKeyToClose.bind(this));
-	            }
-	        }
+	        close: closeModal,
+	        open: openModal
 	    };
 	};
 
