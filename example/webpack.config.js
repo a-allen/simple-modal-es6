@@ -1,7 +1,7 @@
 module.exports = {
-	entry: './src/simple-modal.js',
+	entry: './index.js',
 	output: {
-		filename: 'dist/bundle.js',
+		filename: 'bundle.js',
 		path: __dirname
 	},
 	module: {

@@ -46,7 +46,7 @@
 
 	'use strict';
 
-	var _simpleModal = __webpack_require__(1);
+	var _simpleModal = __webpack_require__(3);
 
 	var _simpleModal2 = _interopRequireDefault(_simpleModal);
 
@@ -64,7 +64,9 @@
 	};
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -73,9 +75,9 @@
 	    value: true
 	});
 
-	__webpack_require__(2);
+	__webpack_require__(4);
 
-	var _helpers = __webpack_require__(6);
+	var _helpers = __webpack_require__(8);
 
 	/* Modal
 	 * Author: Hart Liddell (Mar 2016)
@@ -144,16 +146,16 @@
 	};
 
 /***/ },
-/* 2 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(3);
+	var content = __webpack_require__(5);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -170,10 +172,10 @@
 	}
 
 /***/ },
-/* 3 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(4)();
+	exports = module.exports = __webpack_require__(6)();
 	// imports
 
 
@@ -184,7 +186,7 @@
 
 
 /***/ },
-/* 4 */
+/* 6 */
 /***/ function(module, exports) {
 
 	/*
@@ -240,7 +242,7 @@
 
 
 /***/ },
-/* 5 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -492,7 +494,7 @@
 
 
 /***/ },
-/* 6 */
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
