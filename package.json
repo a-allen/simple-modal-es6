@@ -1,12 +1,12 @@
 {
-  "name": "simple-modal",
+  "name": "simple-modal-es6",
   "version": "1.0.0",
-  "description": "A simple modal.",
-  "main": "simple-modal.js",
+  "description": "A simple modal for es6.",
+  "main": "src/simple-modal.js",
   "scripts": {
     "local": "webpack --progress --colors --watch & httpster"
   },
-  "author": "Hart Liddell",
+  "author": "Hart Liddell <hart@leapingfish.io>",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^6.1.2",
