@@ -2,7 +2,7 @@
  * Author: Hart Liddell (Mar 2016)
  * Purpose: Open/close a simple modal
  */
-import './simple-modal.scss';
+import './index.scss';
 import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {

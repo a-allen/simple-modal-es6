@@ -46,9 +46,9 @@
 
 	'use strict';
 
-	var _simpleModal = __webpack_require__(3);
+	var _index = __webpack_require__(1);
 
-	var _simpleModal2 = _interopRequireDefault(_simpleModal);
+	var _index2 = _interopRequireDefault(_index);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56,17 +56,15 @@
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
-	    (0, _simpleModal2.default)().open(message);
+	    (0, _index2.default)().open(message);
 	    document.getElementById('again').onclick = function (event) {
 	        event.preventDefault();
-	        (0, _simpleModal2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
+	        (0, _index2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
 	    };
 	};
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75,9 +73,9 @@
 	    value: true
 	});
 
-	__webpack_require__(4);
+	__webpack_require__(2);
 
-	var _helpers = __webpack_require__(8);
+	var _helpers = __webpack_require__(6);
 
 	/* Modal
 	 * Author: Hart Liddell (Mar 2016)
@@ -146,23 +144,23 @@
 	};
 
 /***/ },
-/* 4 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(5);
+	var content = __webpack_require__(3);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./simple-modal.scss");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./index.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./index.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -172,10 +170,10 @@
 	}
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(6)();
+	exports = module.exports = __webpack_require__(4)();
 	// imports
 
 
@@ -186,7 +184,7 @@
 
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports) {
 
 	/*
@@ -242,7 +240,7 @@
 
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -494,7 +492,7 @@
 
 
 /***/ },
-/* 8 */
+/* 6 */
 /***/ function(module, exports) {
 
 	'use strict';

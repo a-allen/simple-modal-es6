@@ -1,4 +1,4 @@
-import SimpleModal from '../src/simple-modal';
+import SimpleModal from '../src/index';
 
 var message = '<div><h4>Where have all the wild things gone?</h4><div id="again">TRY AGAIN</div></div>';
 
