@@ -8,7 +8,7 @@
     "build-demo": "cd demo && webpack --progress --colors --watch & httpster"
   },
   "author": "Hart Liddell <hart@leapingfish.io>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.1.2",
     "babel-core": "6.1.2",
