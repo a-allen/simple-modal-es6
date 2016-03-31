@@ -12,7 +12,7 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.scss$/,
-			loader: ExtractTextPlugin.extract('style', 'css!sass!postcss')
+			loaders: ['style', 'css', 'sass', 'postcss']
 		},{
 			test: /\.js?$/,
 			exclude: /node_modules/,
@@ -23,15 +23,6 @@ module.exports = {
 		}]
 	},
 	plugins: [
-		new ExtractTextPlugin('dist/simple-modal-es6.min.css'),
-		new OptimizeCssAssetsPlugin({
-			assetNameRegExp: /\.css$/g,
-			cssProcessorOptions: {
-				discardComments: {
-					removeAll: true
-				}
-			},
-		}),
 		new webpack.optimize.UglifyJsPlugin({
 			minimize: true
 		})

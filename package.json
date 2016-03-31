@@ -4,8 +4,9 @@
   "description": "A simple modal for es6.",
   "main": "dist/simple-modal-es6.min.js",
   "scripts": {
-    "build": "",
-    "demo": "cd demo && webpack --progress --colors --watch & cd demo && httpster"
+    "build": "webpack",
+    "demo": "cd demo && webpack --progress --colors --watch & cd demo && httpster",
+    "local": "webpack --progress --colors --watch & npm run demo"
   },
   "author": "Hart Liddell <hart@leapingfish.io>",
   "license": "MIT",

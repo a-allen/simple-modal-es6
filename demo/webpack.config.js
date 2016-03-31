@@ -6,10 +6,6 @@ module.exports = {
 	},
 	module: {
 		loaders: [{
-			test: /\.css$/,
-			loaders: ['style', 'css']
-		},
-        {
             test: /\.js?$/,
             exclude: /node_modules/,
             loader: 'babel',

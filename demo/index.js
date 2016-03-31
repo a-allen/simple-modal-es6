@@ -1,4 +1,3 @@
-import '../dist/simple-modal-es6.min.css'
 import SimpleModal from '../dist/simple-modal-es6.min';
 
 var message = '<div><h4>Where have all the wild things gone?</h4><div id="again">TRY AGAIN</div></div>';
