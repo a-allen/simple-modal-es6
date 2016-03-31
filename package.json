@@ -2,7 +2,7 @@
   "name": "simple-modal-es6",
   "version": "0.0.1",
   "description": "A simple modal for es6.",
-  "main": "dist/index.js",
+  "main": "dist/simple-modal-es6.min.js",
   "scripts": {
     "build": "",
     "demo": "cd demo && webpack --progress --colors --watch & cd demo && httpster"
@@ -10,13 +10,15 @@
   "author": "Hart Liddell <hart@leapingfish.io>",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.1.2",
+    "autoprefixer": "^6.3.5",
     "babel-core": "6.1.2",
     "babel-loader": "6.0.1",
     "babel-preset-es2015": "6.1.2",
     "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "node-sass": "^3.4.2",
-    "postcss-loader": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^1.3.0",
+    "postcss-loader": "^0.8.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "1.12.9"

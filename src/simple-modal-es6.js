@@ -2,7 +2,7 @@
  * Author: Hart Liddell (Mar 2016)
  * Purpose: Open/close a simple modal
  */
-import './index.scss';
+import './simple-modal-es6.scss';
 import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {
@@ -57,7 +57,7 @@ const openModal = function(htmlContent) {
     }
 }
 
-export default () => {
+export default function() {
     return ({
         state: {},
         close: closeModal,

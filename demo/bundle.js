@@ -46,9 +46,11 @@
 
 	'use strict';
 
-	var _index = __webpack_require__(1);
+	__webpack_require__(1);
 
-	var _index2 = _interopRequireDefault(_index);
+	var _simpleModalEs = __webpack_require__(5);
+
+	var _simpleModalEs2 = _interopRequireDefault(_simpleModalEs);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56,10 +58,10 @@
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
-	    (0, _index2.default)().open(message);
+	    (0, _simpleModalEs2.default)().open(message);
 	    document.getElementById('again').onclick = function (event) {
 	        event.preventDefault();
-	        (0, _index2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
+	        (0, _simpleModalEs2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
 	    };
 	};
 
@@ -67,100 +69,20 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	__webpack_require__(2);
-
-	var _helpers = __webpack_require__(6);
-
-	/* Modal
-	 * Author: Hart Liddell (Mar 2016)
-	 * Purpose: Open/close a simple modal
-	 */
-
-
-	var createModalHtml = function createModalHtml(htmlContent) {
-	    var html = '<div class="tm-modal__content">';
-	    html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
-	    html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
-	    html += '</div>';
-
-	    var domNode = document.createElement('div');
-	    domNode.id = 'tm-modal';
-	    domNode.innerHTML = html;
-	    return domNode;
-	};
-
-	var bindEscKeyToClose = function bindEscKeyToClose(event) {
-	    if (event.keyCode == 27) {
-	        this.close();
-	    }
-	};
-
-	var closeModal = function closeModal() {
-	    // Unbind Esc key event, because we don't want
-	    // to leave that sort thing lying around
-	    (0, _helpers.removeEvent)(document, 'keyup', bindEscKeyToClose);
-	    this.state.modal.remove();
-	};
-
-	var openModal = function openModal(htmlContent) {
-	    var _this = this;
-
-	    // IF there is a modal open replace its contents,
-	    // ELSE create a new modal
-	    if (document.getElementById('tm-modal')) {
-	        document.getElementById('tm-modal').getElementsByClassName('tm-modal__content__inner')[0].innerHTML = htmlContent;
-	    } else {
-
-	        var state = this.state;
-	        document.body.appendChild(createModalHtml(htmlContent));
-	        state.modal = document.getElementById('tm-modal');
-	        state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
-
-	        (0, _helpers.addEvent)(state.modal, 'click', function (event) {
-	            if (event.target.id === 'tm-modal') {
-	                _this.close();
-	            }
-	        });
-
-	        (0, _helpers.addEvent)(state.closeBtn, 'click', function () {
-	            _this.close();
-	        });
-	        (0, _helpers.addEvent)(document, 'keyup', bindEscKeyToClose.bind(this));
-	    }
-	};
-
-	exports.default = function () {
-	    return {
-	        state: {},
-	        close: closeModal,
-	        open: openModal
-	    };
-	};
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(3);
+	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
+	var update = __webpack_require__(4)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./index.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./index.scss");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./simple-modal-es6.min.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./simple-modal-es6.min.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -170,21 +92,21 @@
 	}
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(4)();
+	exports = module.exports = __webpack_require__(3)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "#tm-modal {\n  background-color: rgba(0, 0, 0, 0.65);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0; }\n\n.tm-modal__content {\n  position: relative; }\n\n.tm-modal__content__inner {\n  background: white;\n  box-sizing: border-box;\n  margin: auto;\n  max-width: 600px;\n  min-width: 300px;\n  padding: 20px; }\n\n.tm-modal__close {\n  background: white;\n  border: none;\n  cursor: pointer;\n  font-size: 2rem;\n  line-height: 1;\n  margin: 0;\n  padding: 0;\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 2rem;\n  height: 2rem;\n  overflow: hidden; }\n  .tm-modal__close:focus {\n    outline: none; }\n", ""]);
+	exports.push([module.id, "#tm-modal{background-color:rgba(0,0,0,.65);display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;right:0;bottom:0;left:0}#tm-modal .tm-modal__content{position:relative}#tm-modal .tm-modal__content__inner{background:#fff;box-sizing:border-box;margin:auto;max-width:600px;min-width:300px;padding:20px}#tm-modal .tm-modal__close{background:#fff;border:none;cursor:pointer;font-size:2rem;line-height:1;margin:0;padding:0;position:absolute;top:0;right:0;width:2rem;height:2rem;overflow:hidden}#tm-modal .tm-modal__close:focus{outline:none}#tm-modal .test{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start}", ""]);
 
 	// exports
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	/*
@@ -240,7 +162,7 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -492,30 +414,75 @@
 
 
 /***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	!function (e, t) {
+	  if ("object" == ( false ? "undefined" : _typeof(exports)) && "object" == ( false ? "undefined" : _typeof(module))) module.exports = t();else if (true) !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (t), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {
+	    var n = t();for (var o in n) {
+	      ("object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? exports : e)[o] = n[o];
+	    }
+	  }
+	}(undefined, function () {
+	  return function (e) {
+	    function t(o) {
+	      if (n[o]) return n[o].exports;var d = n[o] = { exports: {}, id: o, loaded: !1 };return e[o].call(d.exports, d, d.exports, t), d.loaded = !0, d.exports;
+	    }var n = {};return t.m = e, t.c = n, t.p = "", t(0);
+	  }([function (e, t, n) {
+	    "use strict";
+	    Object.defineProperty(t, "__esModule", { value: !0 }), t["default"] = function () {
+	      return { state: {}, close: i, open: a };
+	    }, n(1);var o = n(5),
+	        d = function d(e) {
+	      var t = '<div class="tm-modal__content">';t += '<div class="tm-modal__content__inner">' + e + "</div>", t += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>', t += "</div>";var n = document.createElement("div");return n.id = "tm-modal", n.innerHTML = t, n;
+	    },
+	        c = function c(e) {
+	      27 == e.keyCode && this.close();
+	    },
+	        i = function i() {
+	      (0, o.removeEvent)(document, "keyup", c), this.state.modal.remove();
+	    },
+	        a = function a(e) {
+	      var t = this;if (document.getElementById("tm-modal")) document.getElementById("tm-modal").getElementsByClassName("tm-modal__content__inner")[0].innerHTML = e;else {
+	        var n = this.state;document.body.appendChild(d(e)), n.modal = document.getElementById("tm-modal"), n.closeBtn = n.modal.getElementsByClassName("tm-modal__close")[0], (0, o.addEvent)(n.modal, "click", function (e) {
+	          "tm-modal" === e.target.id && t.close();
+	        }), (0, o.addEvent)(n.closeBtn, "click", function () {
+	          t.close();
+	        }), (0, o.addEvent)(document, "keyup", c.bind(this));
+	      }
+	    };
+	  }, function (e, t) {},,,, function (e, t) {
+	    "use strict";
+	    function n(e, t, n) {
+	      e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent && e.attachEvent("on" + t, function () {
+	        return n.apply(e, [window.event]);
+	      });
+	    }function o(e, t, n) {
+	      e.removeEventListener && e.removeEventListener(t, n, !1), e.detachEvent && e.detachEvent("on" + t, n);
+	    }Object.defineProperty(t, "__esModule", { value: !0 }), t.addEvent = n, t.removeEvent = o;
+	  }]);
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)(module)))
+
+/***/ },
 /* 6 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.addEvent = addEvent;
-	exports.removeEvent = removeEvent;
-	function addEvent(obj, type, fn) {
-	    if (obj.addEventListener) {
-	        obj.addEventListener(type, fn, false);
-	    } else if (obj.attachEvent) {
-	        obj.attachEvent('on' + type, function () {
-	            return fn.apply(obj, [window.event]);
-	        });
-	    }
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
 	}
 
-	function removeEvent(obj, type, fn) {
-	    if (obj.removeEventListener) obj.removeEventListener(type, fn, false);
-	    if (obj.detachEvent) obj.detachEvent('on' + type, fn);
-	}
 
 /***/ }
 /******/ ]);
