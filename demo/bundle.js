@@ -52,14 +52,14 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var message = '<div><h4>Where have all the wild things gone?</h4><div id="again">TRY AGAIN</div></div>';
+	var message = '<div>\n    <p>This is a modal with html content.</p>\n    <a href="#" id="again">Change Content</a>\n</div>';
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
 	    (0, _simpleModalEs2.default)().open(message);
 	    document.getElementById('again').onclick = function (event) {
 	        event.preventDefault();
-	        (0, _simpleModalEs2.default)().open('<h4>AGAIN, SERIOUSLY?</h4>');
+	        (0, _simpleModalEs2.default)().open('<p>This content was added on the fly. The modal did not close.</p>');
 	    };
 	};
 
@@ -112,7 +112,7 @@
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
 	  }, function (e, t, n) {
-	    t = e.exports = n(3)(), t.push([e.id, "#smpl-modal{background-color:rgba(0,0,0,.65);display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;right:0;bottom:0;left:0}#smpl-modal .smpl-modal__content{position:relative}#smpl-modal .smpl-modal__content__inner{background:#fff;box-sizing:border-box;margin:auto;max-width:600px;min-width:300px;padding:20px}#smpl-modal .smpl-modal__close{background:#fff;border:none;cursor:pointer;font-size:2rem;line-height:1;margin:0;padding:0;position:absolute;top:0;right:0;width:2rem;height:2rem;overflow:hidden}#smpl-modal .smpl-modal__close:focus{outline:none}", ""]);
+	    t = e.exports = n(3)(), t.push([e.id, "#smpl-modal{background-color:rgba(0,0,0,.65);display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;right:0;bottom:0;left:0}#smpl-modal .smpl-modal__content{margin:.5rem;position:relative}#smpl-modal .smpl-modal__content__inner{background:#fff;box-sizing:border-box;margin:auto;max-width:600px;min-width:300px;padding:20px}#smpl-modal .smpl-modal__close{background:#fff;border:none;cursor:pointer;font-size:2rem;line-height:1;margin:0;padding:0;position:absolute;top:0;right:0;width:2rem;height:2rem;overflow:hidden}#smpl-modal .smpl-modal__close:focus{outline:none}", ""]);
 	  }, function (e, t) {
 	    e.exports = function () {
 	      var e = [];return e.toString = function () {
