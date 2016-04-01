@@ -1,18 +1,18 @@
 /* Modal
- * Author: Hart Liddell (Mar 2016)
+ * Author: Hart Liddell <hart@leapingfish.io>
  * Purpose: Open/close a simple modal
  */
 import './simple-modal-es6.scss';
 import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {
-    let html = '<div class="tm-modal__content">';
-        html += '<div class="tm-modal__content__inner">' + htmlContent + '</div>';
-        html += '<button title="Close (Esc)" type="button" class="tm-modal__close">×</button>';
+    let html = '<div class="smpl-modal__content">';
+        html += '<div class="smpl-modal__content__inner">' + htmlContent + '</div>';
+        html += '<button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>';
         html += '</div>';
 
     const domNode = document.createElement('div');
-    domNode.id = 'tm-modal';
+    domNode.id = 'smpl-modal';
     domNode.innerHTML = html;
     return domNode;
 }
@@ -21,6 +21,19 @@ const bindEscKeyToClose = function(event) {
     if (event.keyCode == 27) {
         this.close();
     }
+}
+
+const attachEventListeners = function(obj) {
+    addEvent(obj.state.modal, 'click', (event) => {
+        if (event.target.id === 'smpl-modal') {
+            obj.close();
+        }
+    });
+
+    addEvent(obj.state.closeBtn, 'click', () => {
+        obj.close();
+    });
+    addEvent(document, 'keyup', bindEscKeyToClose.bind(obj));
 }
 
 const closeModal = function() {
@@ -33,27 +46,16 @@ const closeModal = function() {
 const openModal = function(htmlContent) {
     // IF there is a modal open replace its contents,
     // ELSE create a new modal
-    if (document.getElementById('tm-modal')) {
-        document.getElementById('tm-modal')
-            .getElementsByClassName('tm-modal__content__inner')[0]
+    if (document.getElementById('smpl-modal')) {
+        document.getElementById('smpl-modal')
+            .getElementsByClassName('smpl-modal__content__inner')[0]
             .innerHTML = htmlContent;
     } else {
 
-        const state = this.state;
         document.body.appendChild(createModalHtml(htmlContent));
-        state.modal = document.getElementById('tm-modal');
-        state.closeBtn = state.modal.getElementsByClassName('tm-modal__close')[0];
-
-        addEvent(state.modal, 'click', (event) => {
-            if (event.target.id === 'tm-modal') {
-                this.close();
-            }
-        });
-
-        addEvent(state.closeBtn, 'click', () => {
-            this.close();
-        });
-        addEvent(document, 'keyup', bindEscKeyToClose.bind(this));
+        this.state.modal = document.getElementById('smpl-modal');
+        this.state.closeBtn = this.state.modal.getElementsByClassName('smpl-modal__close')[0];
+        attachEventListeners(this);
     }
 }
 

@@ -1,4 +1,4 @@
-#tm-modal {
+#smpl-modal {
 	background-color: rgba(0,0,0,0.65);
 	display: flex;
 	justify-content: center;
@@ -9,11 +9,11 @@
 	bottom: 0;
 	left: 0;
 
-	.tm-modal__content {
+	.smpl-modal__content {
 		position: relative;
 	}
 
-	.tm-modal__content__inner {
+	.smpl-modal__content__inner {
 		background: white;
 		box-sizing: border-box;
 		margin: auto;
@@ -22,7 +22,7 @@
 		padding: 20px;
 	}
 
-	.tm-modal__close {
+	.smpl-modal__close {
 		background: white;
 		border: none;
 		cursor: pointer;
@@ -40,9 +40,5 @@
 		&:focus {
 			outline: none;
 		}
-	}
-	.test {
-		display: flex;
-		justify-content: flex-start;
 	}
 }
