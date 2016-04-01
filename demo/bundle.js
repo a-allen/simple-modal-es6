@@ -85,27 +85,29 @@
 	  }([function (e, t, n) {
 	    "use strict";
 	    Object.defineProperty(t, "__esModule", { value: !0 }), t["default"] = function () {
-	      return { state: {}, close: a, open: l };
+	      return { state: {}, close: l, open: d };
 	    }, n(1);var o = n(5),
 	        r = function r(e) {
-	      var t = '<div class="smpl-modal__content">\n            <div class="smpl-modal__content__inner">' + e + '</div>\n            <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>\n        </div>',
-	          n = document.createElement("div");return n.id = "smpl-modal", n.innerHTML = t, n;
+	      return '<div class="smpl-modal__content">\n        <div class="smpl-modal__content__inner">' + e + '</div>\n        <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>\n    </div>';
 	    },
 	        i = function i(e) {
-	      document.body.appendChild(r(htmlContent)), e.state.modal = document.getElementById("smpl-modal"), e.state.closeBtn = e.state.modal.getElementsByClassName("smpl-modal__close")[0], (0, o.addEvent)(document, "keyup", s.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
+	      var t = document.createElement("div");return t.id = "smpl-modal", t.innerHTML = r(e), t;
+	    },
+	        s = function s(e, t) {
+	      document.body.appendChild(i(t)), e.state.modal = document.getElementById("smpl-modal"), e.state.closeBtn = e.state.modal.getElementsByClassName("smpl-modal__close")[0], (0, o.addEvent)(document, "keyup", a.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
 	        e.close();
 	      }), (0, o.addEvent)(e.state.modal, "click", function (t) {
 	        "smpl-modal" === t.target.id && e.close();
 	      });
 	    },
-	        s = function s(e) {
+	        a = function a(e) {
 	      27 == e.keyCode && this.close();
 	    },
-	        a = function a() {
-	      (0, o.removeEvent)(document, "keyup", s), this.state.modal.remove();
+	        l = function l() {
+	      (0, o.removeEvent)(document, "keyup", a), this.state.modal.remove();
 	    },
-	        l = function l(e) {
-	      document.getElementById("smpl-modal") ? document.getElementById("smpl-modal").getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : i(this);
+	        d = function d(e) {
+	      document.getElementById("smpl-modal") ? document.getElementById("smpl-modal").getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(this, e);
 	    };
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
