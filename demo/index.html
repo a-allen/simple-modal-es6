@@ -2,12 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Modal</title>
+    <title>Simple Modal ES6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,600' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+        main {
+            padding: 1rem;
+            text-align: center;
+        }
+        main small {
+            display: block;
+        }
+        a {
+            color: black;
+            display: inline-block;
+            text-decoration: none;
+        }
+        #anchor {
+            letter-spacing: 1px;
+            padding-top: 4rem;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-    <h1>Simple Modal</h1>
-    <a href="#" id="anchor">Click to launch modal.</a>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aliquid, nisi velit illum molestiae facere expedita harum debitis, ducimus eveniet, aspernatur distinctio corporis quam ipsa, repudiandae pariatur iure voluptatem assumenda.</p>
+    <main>
+        <small>Simple Modal ES6</small>
+        <a href="#" id="anchor">Click to view modal</a>
+    </main>
     <script src="bundle.js"></script>
 </body>
 </html>

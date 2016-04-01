@@ -51,19 +51,12 @@ const bindEscKeyToClose = function(event) {
 }
 
 const closeModal = function() {
-
-    // Unbind Esc key event, because we don't want
-    // to leave that sort thing lying around
     removeEvent(document, 'keyup', bindEscKeyToClose);
-
-    // Call modal obj remove function
     this.state.modal.remove();
 }
 
 const openModal = function(htmlContent) {
 
-    // IF there is a modal open replace its contents,
-    // ELSE create a new modal
     const smplModal = document.getElementById('smpl-modal');
 
     if (smplModal) {
