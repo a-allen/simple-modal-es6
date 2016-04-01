@@ -22,7 +22,7 @@ const createDomElement = function(htmlContent) {
     return domNode;
 }
 
-const createNewModalElement = function(obj, content) {
+const addNewModalElement = function(obj, content) {
 
     document.body.appendChild(createDomElement(content));
     obj.state.modal = document.getElementById('smpl-modal');
@@ -64,15 +64,13 @@ const openModal = function(htmlContent) {
 
     // IF there is a modal open replace its contents,
     // ELSE create a new modal
-    if (document.getElementById('smpl-modal')) {
+    const smplModal = document.getElementById('smpl-modal');
 
-        document.getElementById('smpl-modal')
-            .getElementsByClassName('smpl-modal__content__inner')[0]
+    if (smplModal) {
+        smplModal.getElementsByClassName('smpl-modal__content__inner')[0]
             .innerHTML = htmlContent;
-
     } else {
-
-        createNewModalElement(this, htmlContent);
+        addNewModalElement(this, htmlContent);
     }
 }
 
