@@ -94,11 +94,11 @@
 	      27 == e.keyCode && this.close();
 	    },
 	        s = function s(e) {
-	      (0, o.addEvent)(e.state.modal, "click", function (t) {
-	        "smpl-modal" === t.target.id && e.close();
-	      }), (0, o.addEvent)(e.state.closeBtn, "click", function () {
+	      (0, o.addEvent)(document, "keyup", i.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
 	        e.close();
-	      }), (0, o.addEvent)(document, "keyup", i.bind(e));
+	      }), (0, o.addEvent)(e.state.modal, "click", function (t) {
+	        "smpl-modal" === t.target.id && e.close();
+	      });
 	    },
 	        a = function a() {
 	      (0, o.removeEvent)(document, "keyup", i), this.state.modal.remove();

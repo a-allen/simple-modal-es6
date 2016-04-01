@@ -24,26 +24,35 @@ const bindEscKeyToClose = function(event) {
 }
 
 const attachEventListeners = function(obj) {
+
+    // Close modal with Esc key
+    addEvent(document, 'keyup', bindEscKeyToClose.bind(obj));
+
+    // Close modal with close button
+    addEvent(obj.state.closeBtn, 'click', () => {
+        obj.close();
+    });
+
+    // Close modal by clicking on overlay background
     addEvent(obj.state.modal, 'click', (event) => {
         if (event.target.id === 'smpl-modal') {
             obj.close();
         }
     });
-
-    addEvent(obj.state.closeBtn, 'click', () => {
-        obj.close();
-    });
-    addEvent(document, 'keyup', bindEscKeyToClose.bind(obj));
 }
 
 const closeModal = function() {
+
     // Unbind Esc key event, because we don't want
     // to leave that sort thing lying around
     removeEvent(document, 'keyup', bindEscKeyToClose);
+
+    // Call modal obj remove function
     this.state.modal.remove();
 }
 
 const openModal = function(htmlContent) {
+    
     // IF there is a modal open replace its contents,
     // ELSE create a new modal
     if (document.getElementById('smpl-modal')) {
