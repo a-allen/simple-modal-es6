@@ -6,11 +6,16 @@ import './simple-modal-es6.scss';
 import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {
-    let html = '<div class="smpl-modal__content">';
-        html += '<div class="smpl-modal__content__inner">' + htmlContent + '</div>';
-        html += '<button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>';
-        html += '</div>';
 
+    // Create basic Html template
+    let html = `<div class="smpl-modal__content">
+            <div class="smpl-modal__content__inner">${ htmlContent }</div>
+            <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>
+        </div>`;
+
+    // Create basic domNode to put html template in
+    // later we'll use basic javascript
+    // to drop this on the page
     const domNode = document.createElement('div');
     domNode.id = 'smpl-modal';
     domNode.innerHTML = html;
@@ -52,7 +57,7 @@ const closeModal = function() {
 }
 
 const openModal = function(htmlContent) {
-    
+
     // IF there is a modal open replace its contents,
     // ELSE create a new modal
     if (document.getElementById('smpl-modal')) {
@@ -61,9 +66,13 @@ const openModal = function(htmlContent) {
             .innerHTML = htmlContent;
     } else {
 
+        // Append new modal element to document body
         document.body.appendChild(createModalHtml(htmlContent));
+
+        // Set new modal state
         this.state.modal = document.getElementById('smpl-modal');
         this.state.closeBtn = this.state.modal.getElementsByClassName('smpl-modal__close')[0];
+
         attachEventListeners(this);
     }
 }

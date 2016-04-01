@@ -88,7 +88,8 @@
 	      return { state: {}, close: a, open: l };
 	    }, n(1);var o = n(5),
 	        r = function r(e) {
-	      var t = '<div class="smpl-modal__content">';t += '<div class="smpl-modal__content__inner">' + e + "</div>", t += '<button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>', t += "</div>";var n = document.createElement("div");return n.id = "smpl-modal", n.innerHTML = t, n;
+	      var t = '<div class="smpl-modal__content">\n            <div class="smpl-modal__content__inner">' + e + '</div>\n            <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>\n        </div>',
+	          n = document.createElement("div");return n.id = "smpl-modal", n.innerHTML = t, n;
 	    },
 	        i = function i(e) {
 	      27 == e.keyCode && this.close();
