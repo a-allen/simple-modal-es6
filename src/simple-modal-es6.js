@@ -7,28 +7,28 @@ import { addEvent, removeEvent } from './helpers';
 
 const createModalHtml = function(htmlContent) {
 
-    // Create basic Html template
+    // Create Html template
     let html = `<div class="smpl-modal__content">
             <div class="smpl-modal__content__inner">${ htmlContent }</div>
             <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>
         </div>`;
 
-    // Create basic domNode to put html template in
-    // later we'll use basic javascript
-    // to drop this on the page
+    // Create domNode to put html template in,
+    // later we'll use basic javascript to drop this on the page
     const domNode = document.createElement('div');
     domNode.id = 'smpl-modal';
     domNode.innerHTML = html;
     return domNode;
 }
 
-const bindEscKeyToClose = function(event) {
-    if (event.keyCode == 27) {
-        this.close();
-    }
-}
+const createNewModalElement = function(obj) {
 
-const attachEventListeners = function(obj) {
+    // Append new modal element to document body
+    document.body.appendChild(createModalHtml(htmlContent));
+
+    // Set new modal state
+    obj.state.modal = document.getElementById('smpl-modal');
+    obj.state.closeBtn = obj.state.modal.getElementsByClassName('smpl-modal__close')[0];
 
     // Close modal with Esc key
     addEvent(document, 'keyup', bindEscKeyToClose.bind(obj));
@@ -46,6 +46,12 @@ const attachEventListeners = function(obj) {
     });
 }
 
+const bindEscKeyToClose = function(event) {
+    if (event.keyCode == 27) {
+        this.close();
+    }
+}
+
 const closeModal = function() {
 
     // Unbind Esc key event, because we don't want
@@ -61,19 +67,14 @@ const openModal = function(htmlContent) {
     // IF there is a modal open replace its contents,
     // ELSE create a new modal
     if (document.getElementById('smpl-modal')) {
+
         document.getElementById('smpl-modal')
             .getElementsByClassName('smpl-modal__content__inner')[0]
             .innerHTML = htmlContent;
+
     } else {
-
-        // Append new modal element to document body
-        document.body.appendChild(createModalHtml(htmlContent));
-
-        // Set new modal state
-        this.state.modal = document.getElementById('smpl-modal');
-        this.state.closeBtn = this.state.modal.getElementsByClassName('smpl-modal__close')[0];
-
-        attachEventListeners(this);
+        
+        createNewModalElement(this);
     }
 }
 

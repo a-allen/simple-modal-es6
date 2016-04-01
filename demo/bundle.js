@@ -92,20 +92,20 @@
 	          n = document.createElement("div");return n.id = "smpl-modal", n.innerHTML = t, n;
 	    },
 	        i = function i(e) {
-	      27 == e.keyCode && this.close();
-	    },
-	        s = function s(e) {
-	      (0, o.addEvent)(document, "keyup", i.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
+	      document.body.appendChild(r(htmlContent)), e.state.modal = document.getElementById("smpl-modal"), e.state.closeBtn = e.state.modal.getElementsByClassName("smpl-modal__close")[0], (0, o.addEvent)(document, "keyup", s.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
 	        e.close();
 	      }), (0, o.addEvent)(e.state.modal, "click", function (t) {
 	        "smpl-modal" === t.target.id && e.close();
 	      });
 	    },
+	        s = function s(e) {
+	      27 == e.keyCode && this.close();
+	    },
 	        a = function a() {
-	      (0, o.removeEvent)(document, "keyup", i), this.state.modal.remove();
+	      (0, o.removeEvent)(document, "keyup", s), this.state.modal.remove();
 	    },
 	        l = function l(e) {
-	      document.getElementById("smpl-modal") ? document.getElementById("smpl-modal").getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : (document.body.appendChild(r(e)), this.state.modal = document.getElementById("smpl-modal"), this.state.closeBtn = this.state.modal.getElementsByClassName("smpl-modal__close")[0], s(this));
+	      document.getElementById("smpl-modal") ? document.getElementById("smpl-modal").getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : i(this);
 	    };
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
