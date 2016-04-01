@@ -52,11 +52,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var message = '<div>\n    <p>This is a modal with html content.</p>\n    <a href="#" id="again">Change Content</a>\n</div>';
+	var content = '<div>\n    <p>This is a modal with html content.</p>\n    <a href="#" id="again">Change Content</a>\n</div>';
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
-	    (0, _simpleModalEs2.default)().open(message);
+	    (0, _simpleModalEs2.default)().open(content);
 	    document.getElementById('again').onclick = function (event) {
 	        event.preventDefault();
 	        (0, _simpleModalEs2.default)().open('<p>This content was added on the fly. The modal did not close.</p>');
