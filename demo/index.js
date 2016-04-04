@@ -7,9 +7,11 @@ const content = `<div>
 
 document.getElementById('anchor').onclick = function(event){
     event.preventDefault();
-    SimpleModal().open(content);
+
+    SimpleModal.open(content);
+
     document.getElementById('again').onclick = function(event) {
         event.preventDefault();
-        SimpleModal().open('<p>This content was added on the fly. The modal did not close.</p>');
+        SimpleModal.open('<p>This content was added on the fly. The modal did not close.</p>');
     }
 }

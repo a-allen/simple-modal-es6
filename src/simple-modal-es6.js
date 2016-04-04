@@ -53,24 +53,23 @@ const bindEscKeyToClose = function(event) {
 const closeModal = function() {
     removeEvent(document, 'keyup', bindEscKeyToClose);
     this.state.modal.remove();
+    this.state.modal = false;
 }
 
 const openModal = function(htmlContent) {
 
-    const smplModal = document.getElementById('smpl-modal');
 
-    if (smplModal) {
-        smplModal.getElementsByClassName('smpl-modal__content__inner')[0]
+    if (this.state.modal) {
+        this.state.modal.getElementsByClassName('smpl-modal__content__inner')[0]
             .innerHTML = htmlContent;
     } else {
         addNewModalElement(this, htmlContent);
     }
 }
 
-export default function() {
-    return ({
-        state: {},
-        close: closeModal,
-        open: openModal
-    });
+
+export default {
+    state: {},
+    close: closeModal,
+    open: openModal
 };

@@ -56,10 +56,12 @@
 
 	document.getElementById('anchor').onclick = function (event) {
 	    event.preventDefault();
-	    (0, _simpleModalEs2.default)().open(content);
+
+	    _simpleModalEs2.default.open(content);
+
 	    document.getElementById('again').onclick = function (event) {
 	        event.preventDefault();
-	        (0, _simpleModalEs2.default)().open('<p>This content was added on the fly. The modal did not close.</p>');
+	        _simpleModalEs2.default.open('<p>This content was added on the fly. The modal did not close.</p>');
 	    };
 	};
 
@@ -84,9 +86,7 @@
 	    }var n = {};return t.m = e, t.c = n, t.p = "", t(0);
 	  }([function (e, t, n) {
 	    "use strict";
-	    Object.defineProperty(t, "__esModule", { value: !0 }), t["default"] = function () {
-	      return { state: {}, close: l, open: c };
-	    }, n(1);var o = n(5),
+	    Object.defineProperty(t, "__esModule", { value: !0 }), n(1);var o = n(5),
 	        r = function r(e) {
 	      return '<div class="smpl-modal__content">\n        <div class="smpl-modal__content__inner">' + e + '</div>\n        <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>\n    </div>';
 	    },
@@ -104,11 +104,11 @@
 	      27 == e.keyCode && this.close();
 	    },
 	        l = function l() {
-	      (0, o.removeEvent)(document, "keyup", a), this.state.modal.remove();
+	      (0, o.removeEvent)(document, "keyup", a), this.state.modal.remove(), this.state.modal = !1;
 	    },
-	        c = function c(e) {
-	      var t = document.getElementById("smpl-modal");t ? t.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(this, e);
-	    };
+	        d = function d(e) {
+	      this.state.modal ? this.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(this, e);
+	    };t["default"] = { state: {}, close: l, open: d };
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
 	  }, function (e, t, n) {
@@ -135,11 +135,11 @@
 	          r.refs++;for (var i = 0; i < r.parts.length; i++) {
 	            r.parts[i](o.parts[i]);
 	          }for (; i < o.parts.length; i++) {
-	            r.parts.push(c(o.parts[i], t));
+	            r.parts.push(d(o.parts[i], t));
 	          }
 	        } else {
 	          for (var s = [], i = 0; i < o.parts.length; i++) {
-	            s.push(c(o.parts[i], t));
+	            s.push(d(o.parts[i], t));
 	          }p[o.id] = { id: o.id, refs: 1, parts: s };
 	        }
 	      }
@@ -150,7 +150,7 @@
 	            s = r[1],
 	            a = r[2],
 	            l = r[3],
-	            c = { css: s, media: a, sourceMap: l };n[i] ? n[i].parts.push(c) : t.push(n[i] = { id: i, parts: [c] });
+	            d = { css: s, media: a, sourceMap: l };n[i] ? n[i].parts.push(d) : t.push(n[i] = { id: i, parts: [d] });
 	      }return t;
 	    }function i(e, t) {
 	      var n = h(),
@@ -163,9 +163,9 @@
 	      var t = document.createElement("style");return t.type = "text/css", i(e, t), t;
 	    }function l(e) {
 	      var t = document.createElement("link");return t.rel = "stylesheet", i(e, t), t;
-	    }function c(e, t) {
+	    }function d(e, t) {
 	      var n, o, r;if (t.singleton) {
-	        var i = g++;n = b || (b = a(t)), o = d.bind(null, n, i, !1), r = d.bind(null, n, i, !0);
+	        var i = g++;n = b || (b = a(t)), o = c.bind(null, n, i, !1), r = c.bind(null, n, i, !0);
 	      } else e.sourceMap && "function" == typeof URL && "function" == typeof URL.createObjectURL && "function" == typeof URL.revokeObjectURL && "function" == typeof Blob && "function" == typeof btoa ? (n = l(t), o = f.bind(null, n), r = function r() {
 	        s(n), n.href && URL.revokeObjectURL(n.href);
 	      }) : (n = a(t), o = u.bind(null, n), r = function r() {
@@ -175,7 +175,7 @@
 	          if (t.css === e.css && t.media === e.media && t.sourceMap === e.sourceMap) return;o(e = t);
 	        } else r();
 	      };
-	    }function d(e, t, n, o) {
+	    }function c(e, t, n, o) {
 	      var r = n ? "" : o.css;if (e.styleSheet) e.styleSheet.cssText = x(t, r);else {
 	        var i = document.createTextNode(r),
 	            s = e.childNodes;s[t] && e.removeChild(s[t]), s.length ? e.insertBefore(i, s[t]) : e.appendChild(i);
@@ -212,11 +212,11 @@
 	          var a = n[s],
 	              l = p[a.id];l.refs--, i.push(l);
 	        }if (e) {
-	          var c = r(e);o(c, t);
+	          var d = r(e);o(d, t);
 	        }for (var s = 0; s < i.length; s++) {
 	          var l = i[s];if (0 === l.refs) {
-	            for (var d = 0; d < l.parts.length; d++) {
-	              l.parts[d]();
+	            for (var c = 0; c < l.parts.length; c++) {
+	              l.parts[c]();
 	            }delete p[l.id];
 	          }
 	        }
