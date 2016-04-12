@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-	entry: './src/simple-modal-es6.js',
+	entry: './src/simple-modal-es6.js',				// source code
 	output: {
 		filename: 'dist/simple-modal-es6.min.js',
         libraryTarget: 'umd'
