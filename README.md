@@ -25,3 +25,11 @@ SimpleModal.open('<h1>Hello World</h1>');
 ## Options
 
 At this time there are no options.
+
+## To Do
+
+Make a list of todos.
+
+## Goal
+
+To create the most minimal, developer friendly modal option possible.
