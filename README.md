@@ -9,17 +9,17 @@ A simple modal with minimal styles and fixed positioning. Modal close is trigged
 ## Installation
 
 ```bash
-# Terminal
 $ npm install simple-modal-es6
 ```
 
 ## Basic Usage
 
 ```js
-// Within working JS
 import SimpleModal from 'simple-modal-es6';
 
 SimpleModal.open('<h1>Hello World</h1>');
+
+SimpleModal.close();
 ```
 
 ## Options
@@ -28,7 +28,8 @@ At this time there are no options.
 
 ## To Do
 
-Make a list of todos.
+1. Add callback after open/close.
+2. Add option to exclude default close button.
 
 ## Goal
 
