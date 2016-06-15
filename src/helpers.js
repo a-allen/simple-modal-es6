@@ -8,7 +8,6 @@ export function addEvent(obj, type, fn) {
 
 export function removeEvent(obj, type, fn) {
     if (obj.removeEventListener) {
-        console.log('obj.removeEventListener');
         obj.removeEventListener(type, fn, false);
     } else if (obj.detachEvent) {
         obj.detachEvent('on' + type, fn);

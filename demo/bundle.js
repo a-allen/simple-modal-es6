@@ -234,7 +234,7 @@
 	        return n.apply(e, [window.event]);
 	      });
 	    }function o(e, t, n) {
-	      e.removeEventListener ? (console.log("obj.removeEventListener"), e.removeEventListener(t, n, !1)) : e.detachEvent && e.detachEvent("on" + t, n);
+	      e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent && e.detachEvent("on" + t, n);
 	    }Object.defineProperty(t, "__esModule", { value: !0 }), t.addEvent = n, t.removeEvent = o;
 	  }]);
 	});
