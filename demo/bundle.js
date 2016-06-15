@@ -94,21 +94,22 @@
 	      var t = document.createElement("div");return t.id = "smpl-modal", t.innerHTML = r(e), t;
 	    },
 	        s = function s(e, t) {
-	      document.body.appendChild(i(t)), e.state.modal = document.getElementById("smpl-modal"), e.state.closeBtn = e.state.modal.getElementsByClassName("smpl-modal__close")[0], (0, o.addEvent)(document, "keyup", a.bind(e)), (0, o.addEvent)(e.state.closeBtn, "click", function () {
+	      document.body.appendChild(i(t)), e.state.modal = document.getElementById("smpl-modal"), e.state.closeBtn = e.state.modal.getElementsByClassName("smpl-modal__close")[0], (0, o.addEvent)(document, "keyup", a), (0, o.addEvent)(e.state.closeBtn, "click", function () {
 	        e.close();
 	      }), (0, o.addEvent)(e.state.modal, "click", function (t) {
 	        "smpl-modal" === t.target.id && e.close();
 	      });
 	    },
 	        a = function a(e) {
-	      27 == e.keyCode && this.close();
+	      27 == e.keyCode && d.close();
 	    },
 	        l = function l() {
-	      (0, o.removeEvent)(document, "keyup", a), this.state.modal.remove(), this.state.modal = !1;
+	      (0, o.removeEvent)(document, "keyup", a), d.state.modal.remove(), d.state.modal = !1;
 	    },
 	        c = function c(e) {
-	      this.state.modal ? this.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(this, e);
-	    };t["default"] = { state: {}, close: l, open: c };
+	      d.state.modal ? d.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(d, e);
+	    },
+	        d = { state: {}, close: l, open: c };t["default"] = d;
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
 	  }, function (e, t, n) {
@@ -233,7 +234,7 @@
 	        return n.apply(e, [window.event]);
 	      });
 	    }function o(e, t, n) {
-	      e.removeEventListener && e.removeEventListener(t, n, !1), e.detachEvent && e.detachEvent("on" + t, n);
+	      e.removeEventListener ? (console.log("obj.removeEventListener"), e.removeEventListener(t, n, !1)) : e.detachEvent && e.detachEvent("on" + t, n);
 	    }Object.defineProperty(t, "__esModule", { value: !0 }), t.addEvent = n, t.removeEvent = o;
 	  }]);
 	});

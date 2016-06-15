@@ -29,7 +29,7 @@ const addNewModalElement = function(obj, content) {
     obj.state.closeBtn = obj.state.modal.getElementsByClassName('smpl-modal__close')[0];
 
     // Close modal with Esc key
-    addEvent(document, 'keyup', bindEscKeyToClose.bind(obj));
+    addEvent(document, 'keyup', bindEscKeyToClose);
 
     // Close modal with close button
     addEvent(obj.state.closeBtn, 'click', () => {
@@ -46,30 +46,30 @@ const addNewModalElement = function(obj, content) {
 
 const bindEscKeyToClose = function(event) {
     if (event.keyCode == 27) {
-        this.close();
+        api.close();
     }
 }
 
 const closeModal = function() {
     removeEvent(document, 'keyup', bindEscKeyToClose);
-    this.state.modal.remove();
-    this.state.modal = false;
+    api.state.modal.remove();
+    api.state.modal = false;
 }
 
 const openModal = function(htmlContent) {
 
-
-    if (this.state.modal) {
-        this.state.modal.getElementsByClassName('smpl-modal__content__inner')[0]
+    if (api.state.modal) {
+        api.state.modal.getElementsByClassName('smpl-modal__content__inner')[0]
             .innerHTML = htmlContent;
     } else {
-        addNewModalElement(this, htmlContent);
+        addNewModalElement(api, htmlContent);
     }
 }
 
-
-export default {
+const api = {
     state: {},
     close: closeModal,
     open: openModal
-};
+}
+
+export default api;
