@@ -8,8 +8,8 @@ A simple modal with minimal styles and fixed positioning. Modal close is trigged
 
 ## Installation
 
-```
-// Terminal
+```bash
+# Terminal
 $ npm install simple-modal-es6
 ```
 
