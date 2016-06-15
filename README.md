@@ -32,4 +32,4 @@ Make a list of todos.
 
 ## Goal
 
-To create the most minimal, developer friendly modal option possible.
+To create the most minimal, developer friendly modal possible.
