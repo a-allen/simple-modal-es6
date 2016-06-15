@@ -56,9 +56,7 @@ const closeModal = function() {
     api.state.modal = false;
 }
 
-const openModal = function(htmlContent, options) {
-
-    options.excludeCloseBtn = options.excludeCloseBtn || false;
+const openModal = function(htmlContent) {
 
     if (api.state.modal) {
         api.state.modal.getElementsByClassName('smpl-modal__content__inner')[0]

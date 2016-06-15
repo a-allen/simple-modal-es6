@@ -106,8 +106,8 @@
 	        l = function l() {
 	      (0, o.removeEvent)(document, "keyup", a), d.state.modal.remove(), d.state.modal = !1;
 	    },
-	        c = function c(e, t) {
-	      t.excludeCloseBtn = t.excludeCloseBtn || !1, d.state.modal ? d.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(d, e);
+	        c = function c(e) {
+	      d.state.modal ? d.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(d, e);
 	    },
 	        d = { state: {}, close: l, open: c };t["default"] = d;
 	  }, function (e, t, n) {
