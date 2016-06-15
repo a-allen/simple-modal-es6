@@ -1,6 +1,6 @@
 {
   "name": "simple-modal-es6",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A simple modal for es6.",
   "main": "dist/simple-modal-es6.min.js",
   "scripts": {
