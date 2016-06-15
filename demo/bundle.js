@@ -88,7 +88,7 @@
 	    "use strict";
 	    Object.defineProperty(t, "__esModule", { value: !0 }), n(1);var o = n(5),
 	        r = function r(e) {
-	      return '<div class="smpl-modal__content">\n        <div class="smpl-modal__content__inner">' + e + '</div>\n        <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>\n    </div>';
+	      return '<div class="smpl-modal__content">\n        <div class="smpl-modal__content__inner">' + e + '</div>\n        <button title="Close (Esc)" type="button" class="smpl-modal__close"><span>×</span></button>\n    </div>';
 	    },
 	        i = function i(e) {
 	      var t = document.createElement("div");return t.id = "smpl-modal", t.innerHTML = r(e), t;
@@ -106,13 +106,13 @@
 	        l = function l() {
 	      (0, o.removeEvent)(document, "keyup", a), this.state.modal.remove(), this.state.modal = !1;
 	    },
-	        d = function d(e) {
+	        c = function c(e) {
 	      this.state.modal ? this.state.modal.getElementsByClassName("smpl-modal__content__inner")[0].innerHTML = e : s(this, e);
-	    };t["default"] = { state: {}, close: l, open: d };
+	    };t["default"] = { state: {}, close: l, open: c };
 	  }, function (e, t, n) {
 	    var o = n(2);"string" == typeof o && (o = [[e.id, o, ""]]);n(4)(o, {});o.locals && (e.exports = o.locals);
 	  }, function (e, t, n) {
-	    t = e.exports = n(3)(), t.push([e.id, "#smpl-modal{background-color:rgba(0,0,0,.65);display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;right:0;bottom:0;left:0}#smpl-modal .smpl-modal__content{margin:.5rem;position:relative}#smpl-modal .smpl-modal__content__inner{background:#fff;box-sizing:border-box;margin:auto;max-width:600px;min-width:300px;padding:20px}#smpl-modal .smpl-modal__close{background:#fff;border:none;cursor:pointer;font-size:2rem;line-height:1;margin:0;padding:0;position:absolute;top:0;right:0;width:2rem;height:2rem;overflow:hidden}#smpl-modal .smpl-modal__close:focus{outline:none}", ""]);
+	    t = e.exports = n(3)(), t.push([e.id, "#smpl-modal{background-color:rgba(0,0,0,.65);display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:fixed;top:0;right:0;bottom:0;left:0}.smpl-modal__content{position:relative}.smpl-modal__content__inner{box-sizing:border-box;margin:auto;padding:20px}.smpl-modal__close{background:transparent;border:none;cursor:pointer;font-size:30px;line-height:1;margin:0;padding:0;position:absolute;top:0;right:0;width:30px;height:30px;overflow:hidden}.smpl-modal__close:focus{outline:none}", ""]);
 	  }, function (e, t) {
 	    e.exports = function () {
 	      var e = [];return e.toString = function () {
@@ -135,11 +135,11 @@
 	          r.refs++;for (var i = 0; i < r.parts.length; i++) {
 	            r.parts[i](o.parts[i]);
 	          }for (; i < o.parts.length; i++) {
-	            r.parts.push(d(o.parts[i], t));
+	            r.parts.push(c(o.parts[i], t));
 	          }
 	        } else {
 	          for (var s = [], i = 0; i < o.parts.length; i++) {
-	            s.push(d(o.parts[i], t));
+	            s.push(c(o.parts[i], t));
 	          }p[o.id] = { id: o.id, refs: 1, parts: s };
 	        }
 	      }
@@ -150,7 +150,7 @@
 	            s = r[1],
 	            a = r[2],
 	            l = r[3],
-	            d = { css: s, media: a, sourceMap: l };n[i] ? n[i].parts.push(d) : t.push(n[i] = { id: i, parts: [d] });
+	            c = { css: s, media: a, sourceMap: l };n[i] ? n[i].parts.push(c) : t.push(n[i] = { id: i, parts: [c] });
 	      }return t;
 	    }function i(e, t) {
 	      var n = h(),
@@ -163,9 +163,9 @@
 	      var t = document.createElement("style");return t.type = "text/css", i(e, t), t;
 	    }function l(e) {
 	      var t = document.createElement("link");return t.rel = "stylesheet", i(e, t), t;
-	    }function d(e, t) {
+	    }function c(e, t) {
 	      var n, o, r;if (t.singleton) {
-	        var i = g++;n = b || (b = a(t)), o = c.bind(null, n, i, !1), r = c.bind(null, n, i, !0);
+	        var i = g++;n = b || (b = a(t)), o = d.bind(null, n, i, !1), r = d.bind(null, n, i, !0);
 	      } else e.sourceMap && "function" == typeof URL && "function" == typeof URL.createObjectURL && "function" == typeof URL.revokeObjectURL && "function" == typeof Blob && "function" == typeof btoa ? (n = l(t), o = f.bind(null, n), r = function r() {
 	        s(n), n.href && URL.revokeObjectURL(n.href);
 	      }) : (n = a(t), o = u.bind(null, n), r = function r() {
@@ -175,7 +175,7 @@
 	          if (t.css === e.css && t.media === e.media && t.sourceMap === e.sourceMap) return;o(e = t);
 	        } else r();
 	      };
-	    }function c(e, t, n, o) {
+	    }function d(e, t, n, o) {
 	      var r = n ? "" : o.css;if (e.styleSheet) e.styleSheet.cssText = x(t, r);else {
 	        var i = document.createTextNode(r),
 	            s = e.childNodes;s[t] && e.removeChild(s[t]), s.length ? e.insertBefore(i, s[t]) : e.appendChild(i);
@@ -212,11 +212,11 @@
 	          var a = n[s],
 	              l = p[a.id];l.refs--, i.push(l);
 	        }if (e) {
-	          var d = r(e);o(d, t);
+	          var c = r(e);o(c, t);
 	        }for (var s = 0; s < i.length; s++) {
 	          var l = i[s];if (0 === l.refs) {
-	            for (var c = 0; c < l.parts.length; c++) {
-	              l.parts[c]();
+	            for (var d = 0; d < l.parts.length; d++) {
+	              l.parts[d]();
 	            }delete p[l.id];
 	          }
 	        }

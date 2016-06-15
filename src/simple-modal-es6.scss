@@ -3,43 +3,39 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
+}
 
-	.smpl-modal__content {
-		margin: 0.5rem;
-		position: relative;
-	}
+.smpl-modal__content {
+    position: relative;
+}
 
-	.smpl-modal__content__inner {
-		background: white;
-		box-sizing: border-box;
-		margin: auto;
-		max-width: 600px;
-		min-width: 300px;
-		padding: 20px;
-	}
+.smpl-modal__content__inner {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px;
+}
 
-	.smpl-modal__close {
-		background: white;
-		border: none;
-		cursor: pointer;
-		font-size: 2rem;
-	    line-height: 1;
-	    margin: 0;
-	    padding: 0;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 2rem;
-		height: 2rem;
-		overflow: hidden;
+.smpl-modal__close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
 
-		&:focus {
-			outline: none;
-		}
-	}
+    &:focus {
+        outline: none;
+    }
 }

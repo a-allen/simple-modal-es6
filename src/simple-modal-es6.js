@@ -8,7 +8,7 @@ import { addEvent, removeEvent } from './helpers';
 const modalHtml = function(content) {
     return `<div class="smpl-modal__content">
         <div class="smpl-modal__content__inner">${ content }</div>
-        <button title="Close (Esc)" type="button" class="smpl-modal__close">×</button>
+        <button title="Close (Esc)" type="button" class="smpl-modal__close"><span>×</span></button>
     </div>`;
 }
 
