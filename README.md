@@ -4,7 +4,7 @@
 
 __Current Beta Testing (Not Production Ready)__
 
-(This will be Production ready July 1, 2016)
+This will be Production ready July 1, 2016.
 
 A simple modal with minimal styles and fixed positioning. Modal close is trigged by a background or close button click, or pressing the ESC key.
 
