@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/simple-modal-es6.svg)](https://badge.fury.io/js/simple-modal-es6)
 
 __Current Beta Testing (Not Production Ready)__
+
 (This will be Production ready July 1, 2016)
 
 A simple modal with minimal styles and fixed positioning. Modal close is trigged by a background or close button click, or pressing the ESC key.
